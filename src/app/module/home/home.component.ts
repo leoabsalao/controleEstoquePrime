@@ -12,11 +12,13 @@ export class HomeComponent {
 
   constructor(private formBuilder: FormBuilder){}
 
+  // formulario de login
   loginForm = this.formBuilder.group({
     email: ['', Validators.required],
     password: ['', Validators.required]
   });
 
+  // formulario de de criar uma conta
   signupForm = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
