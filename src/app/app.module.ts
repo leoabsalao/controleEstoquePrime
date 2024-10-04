@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './module/home/home.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { HomeComponent } from './module/home/home.component';
     ButtonModule,
     ToastModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
