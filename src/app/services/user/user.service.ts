@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { SignupUserResponse } from '../../models/interfaces/user/SignupUserResponse';
 import { AuthRequest } from '../../models/interfaces/user/auth/AuthRequest';
 import { AuthResponse } from '../../models/interfaces/user/auth/AuthResponse';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UserService {
 
   private API_URL = environment.API_URL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookie: CookieService) { }
 
   // Criando um usuário
   signupUser(requestDatas: SignupUserRequest): Observable<SignupUserResponse>{
@@ -24,5 +25,11 @@ export class UserService {
   // Autenticando na aplicação
   authUser(requestDatas: AuthRequest): Observable<AuthResponse>{
     return this.http.post<AuthResponse>(`${this.API_URL}/auth`, requestDatas);
+  }
+
+  // Verifica se usuário possui um token ou um cookie de validação registrado
+  isLoggedIn(): boolean{
+    const JWT_TOKEN = this.cookie.get('USER_INFO');
+    return JWT_TOKEN ? true : false;
   }
 }
