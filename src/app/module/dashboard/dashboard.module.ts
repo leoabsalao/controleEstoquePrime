@@ -12,6 +12,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 
 import { DASHBOARD_ROUTES } from './dashboard.routing';
 import { DashboardHomeComponent } from './page/dashboard-home/dashboard-home.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DashboardHomeComponent } from './page/dashboard-home/dashboard-home.com
     ButtonModule,
     ToolbarModule,
     CardModule,
-    ToastModule
+    ToastModule,
+    ChartModule
   ],
   providers: [MessageService, CookieService]
 })

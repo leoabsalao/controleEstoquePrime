@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './module/home/home.component';
-import { DashboardHomeComponent } from './module/dashboard/page/dashboard-home/dashboard-home.component';
 import { AuthGuard } from './guards/auth-guard.service';
 
 const routes: Routes = [
